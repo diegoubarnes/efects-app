@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  @ViewChild('txtInput') txtInput: ElementRef;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
       return;
     }
     this.router.navigate(['usuario', idUsuario]);
+    this.txtInput.nativeElement.value = '';
   }
 
 }
