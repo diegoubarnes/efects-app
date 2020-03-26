@@ -13,10 +13,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { appReducers } from './app.reducer';
 import { environment } from '../environments/environment';
 import { effectsArray } from './redux/effects';
+import { ColoresComponent } from './colores/colores/colores.component';
+import { ListComponent } from './colores/list/list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ColoresComponent,
+    ListComponent
   ],
   imports: [
   BrowserModule,

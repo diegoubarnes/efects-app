@@ -14,14 +14,15 @@
 </div>
 <div class="row">
     <div class="col-4">
-        <img [src]='usuario?.avatar' alt="" class="img-thumbnail">
+        <div class="altura " [style.background-color]="color.color">
+            <h5>{{color.name}}</h5>
+        </div>
     </div>
     <div class="col">
         <div class="text-black">
-            <div> <strong> ID:</strong> {{usuario?.id}} </div>
-            <div> <strong> Nombre:</strong> {{usuario?.first_name}} </div>
-            <div> <strong> Apellido:</strong> {{usuario?.last_name}} </div>
-            <div> <strong> Correo:</strong> {{usuario?.email}} </div>
+            <div> <strong> ID:</strong> {{color?.id}} </div>
+            <div> <strong> Año:</strong> {{color?.year}} </div>
+            <div> <strong> Pantone:</strong> {{color?.pantone_value}} </div>
         </div>
     </div>
 </div>

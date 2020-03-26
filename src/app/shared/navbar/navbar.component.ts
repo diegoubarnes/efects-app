@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   @ViewChild('txtInput') txtInput: ElementRef;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

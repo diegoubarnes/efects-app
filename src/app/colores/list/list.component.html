@@ -1,0 +1,33 @@
+<div class="alert alert-info text-center" role="alert" *ngIf="loading">
+    <h4 class="alert-heading">Cargando....</h4>
+    <p>
+        <em class="fa fa-sync fa-spin fa-2x"></em>
+    </p>
+    <p class="mb-0"></p>
+</div>
+<div class="alert alert-danger text-center" role="alert" *ngIf="error">
+    <h4 class="alert-heading">Error....</h4>
+    <pre>
+        {{error | json}}
+    </pre>
+    <p class="mb-0"></p>
+</div>
+
+<div class="form-inline my-2 my-lg-4">
+    <input #txtInput (keyup.enter)='BuscarColor(txtInput.value)' class="form-control mr-sm-2" type="search" placeholder="Buscar Color">
+    <button (click)='BuscarColor(txtInput.value)' class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar
+        Color </button>
+</div>
+
+<div class="card-columns">
+    <div class="card" *ngFor="let color of colores">
+        <div class="card-body ">
+            <h5 class="card-title " [style.background-color]="color.color"> {{color.name}} </h5>
+            <ul class="list-group list-group-flush ">
+                <li class="list-group-item "> {{color.id}} </li>
+                <li class="list-group-item "> {{color.year}} </li>
+                <li class="list-group-item "> {{color.pantone_value}} </li>
+            </ul>
+        </div>
+    </div>
+</div>
