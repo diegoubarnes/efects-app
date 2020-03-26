@@ -1,35 +1,31 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
-
 import { AppComponent } from './app.component';
+
+import { ColoresModule } from './colores/colores.module';
 import { SharedModule } from './shared/shared.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
-import { AppRoutingModule } from './app-routing.module';
+
+import { EffectsModule } from '@ngrx/effects';
 import { appReducers } from './app.reducer';
 import { environment } from '../environments/environment';
 import { effectsArray } from './redux/effects';
-import { ColoresComponent } from './colores/colores/colores.component';
-import { ListComponent } from './colores/list/list.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ColoresComponent,
-    ListComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-  BrowserModule,
+    BrowserModule,
     SharedModule,
     UsuariosModule,
+    ColoresModule,
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
+      logOnly: environment.production // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot(effectsArray),
     HttpClientModule,
@@ -38,4 +34,4 @@ import { ListComponent } from './colores/list/list.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
